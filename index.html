@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha Médica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container py-5">
+    <div class="card shadow-lg mx-auto" style="max-width: 700px;">
+      <div class="card-header bg-primary text-white text-center">
+        <h2>Formulario de Ficha Médica</h2>
+      </div>
+      <div class="card-body">
+        <form id="fichaForm">
+          <div class="mb-3">
+            <label for="rut" class="form-label">RUT</label>
+            <input class="form-control" type="text" id="rut" required pattern="^[0-9]{7,8}-[0-9kK]{1}$" title="Ingrese un RUT válido. Formato: 12345678-9">
+          </div>
+          <div class="mb-3">
+            <label for="nombres" class="form-label">Nombres</label>
+            <input class="form-control" type="text" id="nombres" required pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$" title="Solo letras y espacios">
+          </div>
+          <div class="mb-3">
+            <label for="apellidos" class="form-label">Apellidos</label>
+            <input class="form-control" type="text" id="apellidos" required pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$" title="Solo letras y espacios">
+          </div>
+          <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input class="form-control" type="text" id="direccion">
+          </div>
+          <div class="mb-3">
+            <label for="ciudad" class="form-label">Ciudad</label>
+            <input class="form-control" type="text" id="ciudad">
+          </div>
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input class="form-control" type="tel" id="telefono" required pattern="^[0-9]+$" title="Solo números">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input class="form-control" type="email" id="email">
+          </div>
+          <div class="mb-3">
+            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+            <input class="form-control" type="date" id="fechaNacimiento" required>
+          </div>
+          <div class="mb-3">
+            <label for="estadoCivil" class="form-label">Estado Civil</label>
+            <select class="form-select" id="estadoCivil">
+              <option value="">Seleccione Estado Civil</option>
+              <option value="Soltero/a">Soltero/a</option>
+              <option value="Soltero/a">Casado/a</option>
+              <option value="Soltero/a">Divorciado/a</option>
+              <option value="Casado/a">Viudo/a</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="comentarios" class="form-label">Comentarios</label>
+            <textarea class="form-control" id="comentarios" rows="3"></textarea>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-success" type="submit" id="guardarBtn">Guardar</button>
+            <button class="btn btn-secondary" type="reset" id="limpiarBtn">Limpiar</button>
+            <button class="btn btn-danger" type="button" id="cerrarBtn">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="my-5">
+      <h3 class="text-center mb-3">Buscar por Apellido</h3>
+      <input class="form-control mb-3" type="text" id="buscarApellido" placeholder="Buscar Apellido...">
+      <ul id="resultadosBusqueda" class="list-group"></ul>
+    </div>
+  </div>
+
+  <script type="module" src="js/controller.js"></script>
+</body>
+</html>
